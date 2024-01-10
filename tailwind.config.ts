@@ -15,7 +15,7 @@ const config: Config = {
         'dimBlue': "rgba(9, 151, 124, 0.1)",
       },
       fontSize: {
-        'custom': '48px', // Example custom font size
+        'custom': '48px',
       },
       screens: {
         'xs': '480px',
