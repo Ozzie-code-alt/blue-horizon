@@ -3,9 +3,9 @@ import styles from '@/app/style'
 import Button from './Button'
 
 
-const CTA = () => {
+const CTA = ({border} : any) => {
   return (
-    <section className={`${styles.flexCenter} ${styles.marginY} ${styles.padding} sm:flex-row flex-col bg-black-gradient-2 rounded-[20px] box-shadow border border-green-500`}> 
+    <section className={`${styles.flexCenter} ${styles.marginY} ${styles.padding} sm:flex-row flex-col bg-black-gradient-2 rounded-[20px] box-shadow  ${ border ? `border border-green-500`:""}`}> 
         <div className="flex-1 flex flex-col"> 
           <h2 className={styles.heading2}>
           Let’s try our service now!

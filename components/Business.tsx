@@ -8,11 +8,12 @@ type feadtureCardProps = {
   title : string
   content : string
   index : number
+  border: boolean
 }
 
 
-const FeatureCard = ({icon, title, content, index}:feadtureCardProps)=>(
-  <div className={` border border-green-500 flex flex-row p-6 rounded-[20px]  ${index !== features.length -1 ? "mb-6" : "mb-0"} feature-card`}>
+const FeatureCard = ({icon, title, content, index, border}:feadtureCardProps)=>(
+  <div className={` ${border ? `border border-green-500` : ``} flex flex-row p-6 rounded-[20px]  ${index !== features.length -1 ? "mb-6" : "mb-0"} feature-card`}>
     <div className={`w-[64px] h-[64px] rounded-full${styles.flexCenter} bg-dimBlue`}>
       <img src={icon} alt='icon' className='w-[50%] h-[50%] object-contain' />
     </div>
@@ -25,9 +26,9 @@ const FeatureCard = ({icon, title, content, index}:feadtureCardProps)=>(
 )
 
 
-const Business = () => {
+const Business = ({border}:any) => {
   return (
-    <section id='features' className={`${layout.section} border border-red-500 `}>
+    <section id='features' className={`${layout.section} ${ border ? `border border-red-500` : ""} `}>
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
           You do the Business, <br className='sm:block hidden'/>we'll handle the money.
@@ -42,7 +43,7 @@ const Business = () => {
 
       <div className={` flex-col ${layout.sectionImg}`}>
         {features.map((feature, index) => (
-        <FeatureCard key={feature.id} {...feature} index={index}/>
+        <FeatureCard key={feature.id} {...feature} index={index} border={border}/>
 
         ))}
       </div>

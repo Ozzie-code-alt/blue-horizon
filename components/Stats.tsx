@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "@/app/style";
 import { stats } from "@/contants";
-const Stats = () => {
-  return <section className={`${styles.flexCenter} border border-yellow-500 flex-row flex-wrap sm:mb-20 mb-6`}>
+const Stats = ({border}:any) => {
+  return <section className={`${styles.flexCenter} ${ border ? `border border-yellow-500` : ""} flex-row flex-wrap sm:mb-20 mb-6`}>
     {stats.map((stat) =>(
       <div key={stat.id} className={`flex-1
       flex justify-start items-center flex-row m-3`}>

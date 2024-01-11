@@ -2,9 +2,9 @@ import React from "react";
 import { clients } from "@/contants";
 import styles from "@/app/style";
 
-const Clients = () => {
+const Clients = ({border} : any) => {
   return (
-    <section className={`${styles.flexCenter} my-4 border border-red-500`}>
+    <section className={`${styles.flexCenter} my-4  ${ border ? `border border-red-500` : ""}`}>
       <div className={`${styles.flexCenter} sm:min-w-[192px] flex-wrap w-full`}>
         {clients.map((client) => (
           <div className={`flex-1 ${styles.flexCenter}`} key={client.id}>

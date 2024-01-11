@@ -2,11 +2,11 @@ import React from "react";
 import styles from "@/app/style";
 import GetStarted from "./GetStarted";
 
-const Hero = () => {
+const Hero = ({border}:any) => {
   return (
     <section
       id="home"
-      className={`flex md:flex-row flex-col ${styles.paddingY} border border-green-500`}
+      className={`flex md:flex-row flex-col ${styles.paddingY} ${ border ? `border border-green-500` : ""}`}
     >
       <div
         className={`flex-1 ${styles.flexStart} flex-col xsl:px-0 sm:px-16 px-6`}
