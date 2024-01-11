@@ -5,7 +5,7 @@ import { feedback } from "@/contants";
 const Testimonials = () => {
   return (
     <section id="clients" className={`${styles.paddingY} flex-col relative border border-yellow-500`}>
-      <div />
+      <div className="absolute z-[0] w-[60%] h-[60%] -right-[50%] rounded-full blue__gradient" />
 
       {/*To Do */}
       <div className="w-full flex justify-between items-center md:flex-row flex-col sm:mb-16  mb-6 relative z-[1]">
