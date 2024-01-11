@@ -22,21 +22,21 @@ export const navLinks = [
 export const features = [
   {
     id: "feature-1",
-    icon: star,
+    icon: "/Star.svg",
     title: "Rewards",
     content:
       "The best credit cards offer some tantalizing combinations of promotions and prizes",
   },
   {
     id: "feature-2",
-    icon: shield,
+    icon: "/Shield.svg",
     title: "100% Secured",
     content:
       "We take proactive steps make sure your information and transactions are secure.",
   },
   {
     id: "feature-3",
-    icon: send,
+    icon: "/Send.svg",
     title: "Balance Transfer",
     content:
       "A balance transfer credit card can save you a lot of money in interest charges.",
@@ -50,7 +50,7 @@ export const feedback = [
       "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
     name: "Herman Jensen",
     title: "Founder & Leader",
-    img: people01,
+    img: "/people01.png",
   },
   {
     id: "feedback-2",
@@ -58,7 +58,7 @@ export const feedback = [
       "Money makes your life easier. If you're lucky to have it, you're lucky.",
     name: "Steve Mark",
     title: "Founder & Leader",
-    img: people02,
+    img: "/people02.png",
   },
   {
     id: "feedback-3",
@@ -66,7 +66,7 @@ export const feedback = [
       "It is usually people in the money business, finance, and international trade that are really rich.",
     name: "Kenn Gallagher",
     title: "Founder & Leader",
-    img: people03,
+    img: "/people03.png",
   },
 ];
 
@@ -157,22 +157,22 @@ export const footerLinks = [
 export const socialMedia = [
   {
     id: "social-media-1",
-    icon: instagram,
+    icon: "/instagram.svg",
     link: "https://www.instagram.com/",
   },
   {
     id: "social-media-2",
-    icon: facebook,
+    icon:  "/facebook.svg",
     link: "https://www.facebook.com/",
   },
   {
     id: "social-media-3",
-    icon: twitter,
+    icon: "/twitter.svg",
     link: "https://www.twitter.com/",
   },
   {
     id: "social-media-4",
-    icon: linkedin,
+    icon: "/linkedin.svg",
     link: "https://www.linkedin.com/",
   },
 ];
@@ -180,18 +180,18 @@ export const socialMedia = [
 export const clients = [
   {
     id: "client-1",
-    logo: airbnb,
+    logo:"/airbnb.png",
   },
   {
     id: "client-2",
-    logo: binance,
+    logo:"/binance.png",
   },
   {
     id: "client-3",
-    logo: coinbase,
+    logo:"/coinbase.png",
   },
   {
     id: "client-4",
-    logo: dropbox,
+    logo:"/dropbox.png",
   },
 ];
