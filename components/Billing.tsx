@@ -1,11 +1,11 @@
 import React from "react";
 import styles, { layout } from "@/app/style";
 
-const Billing = () => {
+const Billing = ({border} : any) => {
   return (
     <section
       id="product"
-      className={`${layout.sectionReverse} border border-green-500`}
+      className={`${layout.sectionReverse} ${border ? `border border-green-500`: ""}`}
     >
       <div className={layout.sectionImgReverse}>
         <img

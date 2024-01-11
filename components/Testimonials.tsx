@@ -2,9 +2,9 @@ import React from "react";
 import styles from "@/app/style";
 import FeedbackCard from "./FeedbackCard";
 import { feedback } from "@/contants";
-const Testimonials = () => {
+const Testimonials = ({border} : any) => {
   return (
-    <section id="clients" className={`${styles.paddingY} flex-col relative border border-yellow-500`}>
+    <section id="clients" className={`${styles.paddingY} flex-col relative ${border ? `border border-yellow-500` : ""}`}>
       <div className="absolute z-[0] w-[60%] h-[60%] -right-[50%] rounded-full blue__gradient" />
 
       {/*To Do */}
@@ -24,6 +24,7 @@ const Testimonials = () => {
           <FeedbackCard
           key={card.id}
           {...card}
+          border={border} 
           />
         ))}
       </div>

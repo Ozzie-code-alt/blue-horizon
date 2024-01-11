@@ -2,9 +2,9 @@ import React from "react";
 import styles, { layout } from "@/app/style";
 import Button from "./Button";
 
-const CardDeal = () => {
+const CardDeal = ({border}:any) => {
   return (
-    <section className={`${layout.section} border border-purple-500`}>
+    <section className={`${layout.section} ${border ? `border border-purple-500`: ""}`}>
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
           Find a better card deal <br className="sm:block hidden" />
@@ -16,7 +16,7 @@ const CardDeal = () => {
         </p>
         <Button styles="mt-10" />
       </div>
-      <div className={`${layout.sectionImg} border border-green-500`}>
+      <div className={`${layout.sectionImg} ${border ? `border border-green-500`:""}`}>
         <img src="/card.png" alt="card" className="w-[100%] h-[100%]" />
       </div>
     </section>

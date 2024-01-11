@@ -2,12 +2,15 @@
 import React, { useState } from "react";
 import { navLinks } from "@/contants";
 
-const Navbar = () => {
+const Navbar = ({border, toggleBorder}:any) => {
   const [toggle, setToggle] = useState(false);
 
+
+
+
   return (
-    <div className="border border-red-500 w-full flex py-6 justify-between items-center ">
-      <img src={"/logo.svg"} alt="hookank" className="w-[124px] h-[32px]"  />
+    <div className={ `full flex py-6 justify-between items-center ${border ? `border border-red-500`: ``}`}>
+      <img src={"/logo.svg"} alt="hookank" className="w-[124px] h-[32px]" onClick={toggleBorder}  />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((link, index) => (
           <li
