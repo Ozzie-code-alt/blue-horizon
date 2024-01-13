@@ -1,13 +1,24 @@
 import React from "react";
 import styles, { layout } from "@/app/style";
+import {motion} from "framer-motion"
+import { useInView } from "react-intersection-observer";
+import { slideInFromLeft, slideInFromRight } from "@/utils/motion";
 
 const Billing = ({border} : any) => {
+const [ref, inView] = useInView({
+  triggerOnce: true
+})
   return (
     <section
       id="product"
       className={`${layout.sectionReverse} ${border ? `border border-green-500`: ""}`}
     >
-      <div className={layout.sectionImgReverse}>
+      <motion.div className={layout.sectionImgReverse}
+      ref={ref}
+      initial="hidden"
+      animate= {inView ? "visible" : "hidden"}
+      variants={slideInFromLeft(0.5)}
+      >
         <img
           src="/bill.png"
           alt="billing"
@@ -15,9 +26,13 @@ const Billing = ({border} : any) => {
         />
         <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
         <div className="absolute z-[0] -left-1/2 bottom-0 w-[50%] h-[50%] rounded-full pink__gradient" />
-      </div>
+      </motion.div>
 
-      <div className={layout.sectionInfo}>
+      <motion.div className={layout.sectionInfo}
+            ref={ref}
+            animate= {inView ? "visible" : "hidden"}
+            initial="hidden"
+            variants={slideInFromRight(0.5)}>
         <h2 className={styles.heading2}>
           Easily Control your <br className="block sm:hidden" /> Billing and
           Invoicing
@@ -39,7 +54,7 @@ const Billing = ({border} : any) => {
             className="w-[128px] h-[42px] object-contain  cursor-pointer"
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

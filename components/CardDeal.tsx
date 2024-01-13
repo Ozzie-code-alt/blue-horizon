@@ -1,11 +1,27 @@
 import React from "react";
 import styles, { layout } from "@/app/style";
 import Button from "./Button";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { slideInFromLeft, slideInFromRight } from "@/utils/motion";
+const CardDeal = ({ border }: any) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
 
-const CardDeal = ({border}:any) => {
   return (
-    <section className={`${layout.section} ${border ? `border border-purple-500`: ""}`}>
-      <div className={layout.sectionInfo}>
+    <section
+      className={`${layout.section} ${
+        border ? `border border-purple-500` : ""
+      }`}
+    >
+      <motion.div
+        className={layout.sectionInfo}
+        ref={ref}
+        animate={inView ? "visible" : "hidden"}
+        initial="hidden"
+        variants={slideInFromLeft(0.5)}
+      >
         <h2 className={styles.heading2}>
           Find a better card deal <br className="sm:block hidden" />
           in few wasy steps.
@@ -15,10 +31,19 @@ const CardDeal = ({border}:any) => {
           aliquet eget mauris tortor.ç Aliquet ultrices ac, ametau.
         </p>
         <Button styles="mt-10" />
-      </div>
-      <div className={`${layout.sectionImg} ${border ? `border border-green-500`:""}`}>
+      </motion.div>
+
+      <motion.div
+        className={`${layout.sectionImg} ${
+          border ? `border border-green-500` : ""
+        }`}
+        ref={ref}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={slideInFromRight(0.5)}
+      >
         <img src="/card.png" alt="card" className="w-[100%] h-[100%]" />
-      </div>
+      </motion.div>
     </section>
   );
 };
