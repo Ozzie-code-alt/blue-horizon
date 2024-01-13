@@ -10,6 +10,7 @@ const Hero = ({ border }: any) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
+  
   return (
     <section
       id="home"

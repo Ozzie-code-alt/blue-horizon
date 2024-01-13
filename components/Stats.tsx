@@ -3,7 +3,7 @@ import styles from "@/app/style";
 import { stats } from "@/contants";
 import {motion} from "framer-motion"
 import { useInView } from "react-intersection-observer";
-import { slideInFromBottom } from "@/utils/motion";
+
 
 const Stats = ({border}:any) => {
   const [ref, inView] = useInView({
@@ -12,12 +12,13 @@ const Stats = ({border}:any) => {
   
   const getVariants = (index:number) => {
     return {
+      hidden: { y: 100, opacity: 0 },
       visible: { 
-        opacity: 1, 
+        y: 0,
+        opacity: 1,
         scale: 1, 
-        transition: { duration: 0.5 + index + 0.5} // Custom duration based on index
+        transition: { duration: 0.5 + index + 0.1} // Custom duration based on index
       },
-      hidden: { opacity: 0, scale: 0.8 },
     };
   };
 

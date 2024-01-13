@@ -2,7 +2,9 @@ import React from 'react'
 import { features } from '@/contants'
 import styles, {layout} from '@/app/style'
 import Button from './Button'
-
+import {motion} from "framer-motion"
+import { useInView } from 'react-intersection-observer'
+import { slideInFromBottom, slideInFromLeft } from '@/utils/motion'
 
 
 type feadtureCardProps = {
@@ -29,9 +31,18 @@ const FeatureCard = ({icon, title, content, index, border}:feadtureCardProps)=>(
 
 
 const Business = ({border}:any) => {
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
   return (
+    
     <section id='features' className={`${layout.section} ${ border ? `border border-red-500` : ""} `}>
-      <div className={layout.sectionInfo}>
+      <motion.div className={layout.sectionInfo}
+      ref={ref}
+      initial="hidden"
+      animate= {inView ? "visible" : "hidden"}
+      variants={slideInFromBottom(0.5)}>
         <h2 className={styles.heading2}>
           You do the Business, <br className='sm:block hidden'/>we'll handle the money.
         </h2>
@@ -41,14 +52,19 @@ const Business = ({border}:any) => {
         of credit cards on the market.
         </p>
         <Button styles="mt-10"/>
-      </div>
+      </motion.div>
 
-      <div className={` flex-col ${layout.sectionImg}`}>
+
+      <motion.div className={` flex-col ${layout.sectionImg}`}
+       ref={ref}
+       initial="hidden"
+       animate= {inView ? "visible" : "hidden"}
+       variants={slideInFromBottom(0.5)}>
         {features.map((feature, index) => (
         <FeatureCard key={feature.id} {...feature} index={index} border={border}/>
 
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }
