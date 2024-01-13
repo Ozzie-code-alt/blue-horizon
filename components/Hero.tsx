@@ -1,17 +1,34 @@
 import React from "react";
 import styles from "@/app/style";
 import GetStarted from "./GetStarted";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { slideInFromBottom } from "@/utils/motion";
+import { cn } from "@/utils/utils";
 
-const Hero = ({border}:any) => {
+const Hero = ({ border }: any) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
   return (
     <section
       id="home"
-      className={`flex md:flex-row flex-col ${styles.paddingY} ${ border ? `border border-green-500` : ""}`}
+      className={cn(`flex md:flex-row flex-col ${styles.paddingY}`, 
+       {"border border-green-500" : border}
+      )}
     >
-      <div
+      <motion.div
         className={`flex-1 ${styles.flexStart} flex-col xsl:px-0 sm:px-16 px-6`}
+        initial="hidden"
+        animate="visible"
+        ref={ref}
+        variants={slideInFromBottom(0.5)}
       >
-        <div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2">
+        <div
+          className={cn(
+            "flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2 "
+          )}
+        >
           <img
             src={"/discount.svg"}
             alt="discount"
@@ -42,9 +59,15 @@ const Hero = ({border}:any) => {
           most likely to fit your needs. We examine annual percentage rates,
           annual fees.
         </p>
-      </div>
+      </motion.div>
 
-      <div className={`flex-1 flex  md:my-0 my-10 relative`}>
+      <motion.div
+        className={`flex-1 flex  md:my-0 my-10 relative`}
+        ref={ref}
+        initial="hidden"
+        animate="visible"
+        variants={slideInFromBottom(0.6)}
+      >
         <img
           src="/robot.png"
           alt="billing"
@@ -53,10 +76,10 @@ const Hero = ({border}:any) => {
         <div className="absolute z-0 w-[40%] h-[35%] top-0 pink__gradient" />
         <div className="absolute z-1 w-[80%] h-[85%] rounded-full bottom-50 white__gradient" />
         <div className="absolute z-0 w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
-      </div>
+      </motion.div>
 
       <div className={`ss:hidden ${styles.flexCenter}`}>
-          <GetStarted/>
+        <GetStarted />
       </div>
     </section>
   );

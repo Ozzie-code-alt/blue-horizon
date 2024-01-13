@@ -3,6 +3,8 @@ import { features } from '@/contants'
 import styles, {layout} from '@/app/style'
 import Button from './Button'
 
+
+
 type feadtureCardProps = {
   icon : string
   title : string
@@ -14,7 +16,7 @@ type feadtureCardProps = {
 
 const FeatureCard = ({icon, title, content, index, border}:feadtureCardProps)=>(
   <div className={` ${border ? `border border-green-500` : ``} flex flex-row p-6 rounded-[20px]  ${index !== features.length -1 ? "mb-6" : "mb-0"} feature-card`}>
-    <div className={`w-[64px] h-[64px] rounded-full${styles.flexCenter} bg-dimBlue`}>
+    <div className={`w-[64px] h-[64px] rounded-full ${styles.flexCenter} bg-dimBlue `}>
       <img src={icon} alt='icon' className='w-[50%] h-[50%] object-contain' />
     </div>
 
