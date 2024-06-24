@@ -44,7 +44,7 @@ const Business = ({border}:any) => {
       animate= {inView ? "visible" : "hidden"}
       variants={slideInFromBottom(0.5)}>
         <h2 className={styles.heading2}>
-          You do the Business, <br className='sm:block hidden'/>we'll handle the money.
+          You do the Business, <br className='sm:block hidden'/>we&apos;ll handle the money.
         </h2>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
         With the right credit card, you can improve your financial life by
