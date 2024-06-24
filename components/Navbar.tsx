@@ -43,7 +43,7 @@ const Navbar = ({border, toggleBorder}:any) => {
               <li
                 key={link.id}
                 className={`font-poppins font-normal cursor-pointer text-[16px] ${
-                  index === navLinks.length - 1 ? "mr-0 " : "mb-4 "
+                  index === 2 ? "text-green-500" : "mb-4 "
                 } text-white`}
               >
                 <a href={`#${link.id}`}>{link.title}</a>
